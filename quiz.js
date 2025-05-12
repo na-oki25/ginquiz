@@ -13,20 +13,20 @@ const quizData = [
         question: "最初にクラフトジンが登場した国はどこですか？",
         choices: ["イギリス", "アメリカ", "オランダ", "日本"],
         correct: "イギリス"
-    }
-     {
+    },
+    {
         question: "きっかじんの正しい表記はどれですか",
         choices: ["橘花ジン", "KIKKA GIN", "橘花KIKKA GIN", "橘花 KIKKA GIN"],
         correct: "橘花KIKKA GIN"
     },
     {
         question: "大和蒸溜所の英語表記が正しいのはどれ？",
-        choices: ["YAMOTO DISTILLERY", "YAMATO DISTILERY", "TOMATO DISTILLERY", "YAMATO DISTILLERY"]
+        choices: ["YAMOTO DISTILLERY", "YAMATO DISTILERY", "TOMATO DISTILLERY", "YAMATO DISTILLERY"],
         correct: "YAMATO DISTILLERY"
     },
     {
         question: "大和蒸溜所がスタートしたのは？",
-        choices: ["2017", "2018", "2019", "2020"]
+        choices: ["2017", "2018", "2019", "2020"],
         correct: "2018"
     },
 ];
