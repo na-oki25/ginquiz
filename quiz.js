@@ -1,7 +1,7 @@
 const quizData = [
     {
         question: "クラフトジンの主成分は何ですか？",
-        choices: ["ジュニパーベリー", "みかん", "オレンジ", "レモン"],
+        choices: ["ジュニパーベリー", "リンゴ", "オレンジ", "レモン"],
         correct: "ジュニパーベリー"
     },
     {
@@ -66,6 +66,11 @@ function checkAnswer(selectedChoice) {
         score++;  // 正解の場合スコアを加算
     }
 
+    // 最初の問題を答えたらタイマーをスタート
+    if (!timerStarted) {
+        startTimer(); // タイマーを開始
+    }
+
     // 次の問題に進む
     nextQuestion();
 }
@@ -91,5 +96,5 @@ function endGame() {
     displayQuestion();
 }
 
-// 最初の質問を表示し、タイマーをスタート
+// 最初の質問を表示
 displayQuestion();
