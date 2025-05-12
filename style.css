@@ -1,31 +1,96 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+const quizData = [
+    {
+        question: "クラフトジンの主成分は何ですか？",
+        choices: ["ジュニパーベリー", "リンゴ", "オレンジ", "レモン"],
+        correct: "ジュニパーベリー"
+    },
+    {
+        question: "ジンの製造で最も重要な工程は何ですか？",
+        choices: ["蒸留", "発酵", "熟成", "冷却"],
+        correct: "蒸留"
+    },
+    {
+        question: "最初にクラフトジンが登場した国はどこですか？",
+        choices: ["イギリス", "アメリカ", "オランダ", "日本"],
+        correct: "イギリス"
+    }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+let timeLeft = 300; // 5分（300秒）
+let timerInterval;
+let timerStarted = false; // タイマーが始まっているかのフラグ
+
+// 最初の問題を表示
+function displayQuestion() {
+    const currentQuestion = quizData[currentQuestionIndex];
+    const questionElement = document.getElementById('question');
+    const choicesElement = document.getElementById('choices');
+    
+    questionElement.textContent = currentQuestion.question;
+
+    choicesElement.innerHTML = "";
+    currentQuestion.choices.forEach(choice => {
+        const button = document.createElement("button");
+        button.textContent = choice;
+        button.onclick = function() { checkAnswer(choice); };
+        choicesElement.appendChild(button);
+    });
+
+    // 「次の問題」ボタンは非表示にしておく
+    document.getElementById('next-button').style.display = "none";
 }
 
-#quiz-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+// タイマーの開始
+function startTimer() {
+    if (!timerStarted) {
+        timerInterval = setInterval(function() {
+            timeLeft--;
+            document.getElementById('time-left').textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("時間切れ！あなたのスコアは " + score + " 点です！");
+                endGame();
+            }
+        }, 1000);
+        timerStarted = true; // タイマー開始フラグを立てる
+    }
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+function checkAnswer(selectedChoice) {
+    const currentQuestion = quizData[currentQuestionIndex];
+    
+    if (selectedChoice === currentQuestion.correct) {
+        score++;  // 正解の場合スコアを加算
+    }
+
+    // 次の問題ボタンを表示
+    document.getElementById('next-button').style.display = "block";
 }
 
-button:hover {
-    background-color: #45a049;
+function nextQuestion() {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < quizData.length) {
+        displayQuestion();
+    } else {
+        alert("おめでとうございます！すべての問題をクリアしました！あなたのスコアは " + score + " 点です！");
+        endGame();
+    }
 }
+
+// ゲーム終了
+function endGame() {
+    // ゲームをリセットする場合、スコアをリセットして最初から始める
+    score = 0;
+    currentQuestionIndex = 0;
+    timeLeft = 300; // タイマーをリセット
+    document.getElementById('time-left').textContent = timeLeft;
+    displayQuestion();
+}
+
+// 最初の質問を表示し、タイマーをスタート
+displayQuestion();
+
