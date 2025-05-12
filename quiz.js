@@ -28,8 +28,9 @@ const quizData = [
         question: "大和蒸溜所がスタートしたのは？",
         choices: ["2017", "2018", "2019", "2020"],
         correct: "2018"
-    },
+    }
 ];
+
 
 let currentQuestionIndex = 0;
 let score = 0;
