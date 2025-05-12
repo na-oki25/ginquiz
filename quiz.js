@@ -40,14 +40,9 @@ function displayQuestion() {
 
     // 「次の問題」ボタンは非表示にしておく
     document.getElementById('next-button').style.display = "none";
-
-    // 最初の問題を表示したらタイマーを開始
-    if (!timerStarted) {
-        startTimer();
-    }
 }
 
-// タイマーの開始
+// タイマーの開始（最初の問題に答えたらスタート）
 function startTimer() {
     if (!timerStarted) {
         timerInterval = setInterval(function() {
@@ -71,8 +66,8 @@ function checkAnswer(selectedChoice) {
         score++;  // 正解の場合スコアを加算
     }
 
-    // 次の問題ボタンを表示
-    document.getElementById('next-button').style.display = "block";
+    // 次の問題に進む
+    nextQuestion();
 }
 
 function nextQuestion() {
