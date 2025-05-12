@@ -49,17 +49,19 @@ function displayQuestion() {
 
 // タイマーの開始
 function startTimer() {
-    timerInterval = setInterval(function() {
-        timeLeft--;
-        document.getElementById('time-left').textContent = timeLeft;
+    if (!timerStarted) {
+        timerInterval = setInterval(function() {
+            timeLeft--;
+            document.getElementById('time-left').textContent = timeLeft;
 
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            alert("時間切れ！あなたのスコアは " + score + " 点です！");
-            endGame();
-        }
-    }, 1000);
-    timerStarted = true; // タイマー開始フラグを立てる
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("時間切れ！あなたのスコアは " + score + " 点です！");
+                endGame();
+            }
+        }, 1000);
+        timerStarted = true; // タイマー開始フラグを立てる
+    }
 }
 
 function checkAnswer(selectedChoice) {
