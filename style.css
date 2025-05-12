@@ -40,23 +40,26 @@ function displayQuestion() {
 
     // 「次の問題」ボタンは非表示にしておく
     document.getElementById('next-button').style.display = "none";
+
+    // 最初の問題を表示したらタイマーを開始
+    if (!timerStarted) {
+        startTimer();
+    }
 }
 
 // タイマーの開始
 function startTimer() {
-    if (!timerStarted) {
-        timerInterval = setInterval(function() {
-            timeLeft--;
-            document.getElementById('time-left').textContent = timeLeft;
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        document.getElementById('time-left').textContent = timeLeft;
 
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                alert("時間切れ！あなたのスコアは " + score + " 点です！");
-                endGame();
-            }
-        }, 1000);
-        timerStarted = true; // タイマー開始フラグを立てる
-    }
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("時間切れ！あなたのスコアは " + score + " 点です！");
+            endGame();
+        }
+    }, 1000);
+    timerStarted = true; // タイマー開始フラグを立てる
 }
 
 function checkAnswer(selectedChoice) {
