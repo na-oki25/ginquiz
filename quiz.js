@@ -13,15 +13,16 @@ const quizData = [
         question: "最初にクラフトジンが登場した国はどこですか？",
         choices: ["イギリス", "アメリカ", "オランダ", "日本"],
         correct: "イギリス"
-    },
-    // 追加の問題をここに挿入できます
+    }
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 300; // 5分（300秒）
 let timerInterval;
+let timerStarted = false; // タイマーが始まっているかのフラグ
 
+// 最初の問題を表示
 function displayQuestion() {
     const currentQuestion = quizData[currentQuestionIndex];
     const questionElement = document.getElementById('question');
@@ -39,19 +40,36 @@ function displayQuestion() {
 
     // 「次の問題」ボタンは非表示にしておく
     document.getElementById('next-button').style.display = "none";
+
+    // 最初の問題を表示したらタイマーを開始
+    if (!timerStarted) {
+        startTimer();
+    }
+}
+
+// タイマーの開始
+function startTimer() {
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        document.getElementById('time-left').textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("時間切れ！あなたのスコアは " + score + " 点です！");
+            endGame();
+        }
+    }, 1000);
+    timerStarted = true; // タイマー開始フラグを立てる
 }
 
 function checkAnswer(selectedChoice) {
     const currentQuestion = quizData[currentQuestionIndex];
     
     if (selectedChoice === currentQuestion.correct) {
-        alert("正解!");
-        score++;  // スコアを1点加算
-    } else {
-        alert("不正解。正しい答えは「" + currentQuestion.correct + "」です。");
+        score++;  // 正解の場合スコアを加算
     }
 
-    // 回答後に次の問題ボタンを表示
+    // 次の問題ボタンを表示
     document.getElementById('next-button').style.display = "block";
 }
 
@@ -62,27 +80,19 @@ function nextQuestion() {
         displayQuestion();
     } else {
         alert("おめでとうございます！すべての問題をクリアしました！あなたのスコアは " + score + " 点です！");
-        // ゲームをリセットする場合は、スコアをリセットして最初から始める
-        score = 0;
-        currentQuestionIndex = 0;
-        displayQuestion();
+        endGame();
     }
 }
 
-// タイマー関数
-function startTimer() {
-    timerInterval = setInterval(function() {
-        timeLeft--;
-        document.getElementById('time-left').textContent = timeLeft;
-
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            alert("時間切れ！あなたのスコアは " + score + " 点です！");
-            // ゲーム終了時の処理（リセットや終了）
-        }
-    }, 1000);
+// ゲーム終了
+function endGame() {
+    // ゲームをリセットする場合、スコアをリセットして最初から始める
+    score = 0;
+    currentQuestionIndex = 0;
+    timeLeft = 300; // タイマーをリセット
+    document.getElementById('time-left').textContent = timeLeft;
+    displayQuestion();
 }
 
-// ゲーム開始時にタイマーをスタート
-startTimer();
+// 最初の質問を表示し、タイマーをスタート
 displayQuestion();
