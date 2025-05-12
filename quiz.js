@@ -81,18 +81,31 @@ function nextQuestion() {
     if (currentQuestionIndex < quizData.length) {
         displayQuestion();
     } else {
-        alert("おめでとうございます！すべての問題をクリアしました！あなたのスコアは " + score + " 点です！");
-        endGame();
+        endGame();  // ゲーム終了
     }
 }
 
 // ゲーム終了
 function endGame() {
-    // ゲームをリセットする場合、スコアをリセットして最初から始める
+    // クイズ部分を非表示にして、結果画面を表示
+    document.getElementById('quiz-container').style.display = "none";
+    document.getElementById('end-container').style.display = "block";
+    document.getElementById('score-display').textContent = "あなたのスコアは " + score + " 点です。";
+}
+
+// 最初からボタンを押した時
+function restartGame() {
+    // ゲームをリセットして再スタート
     score = 0;
     currentQuestionIndex = 0;
     timeLeft = 300; // タイマーをリセット
     document.getElementById('time-left').textContent = timeLeft;
+
+    // クイズ部分を再表示
+    document.getElementById('quiz-container').style.display = "block";
+    document.getElementById('end-container').style.display = "none";
+    
+    // 最初の問題を表示
     displayQuestion();
 }
 
