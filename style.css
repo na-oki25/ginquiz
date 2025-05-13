@@ -26,18 +26,18 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 10px 0; /* ボタンの間にスペースを作る */
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-#end-container {
-    text-align: center;
+#choices {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* 縦に並べる */
+    align-items: center; /* ボタンを中央に配置 */
+    gap: 10px; /* ボタン同士の間隔 */
 }
 
 #timer {
