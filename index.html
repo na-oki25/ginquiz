@@ -22,7 +22,14 @@
     <div id="end-container" style="display:none;">
         <h2>ゲーム終了！</h2>
         <p id="score-display">あなたのスコアは 0 点です。</p>
-        <button id="restart-button" onclick="restartGame()">最初から</button>
+        <button id="restart-button" onclick="confirmRestart()">最初から</button>
+    </div>
+
+    <!-- 確認ダイアログ -->
+    <div id="confirm-dialog" style="display:none;">
+        <p>本当に最初からやり直しますか？</p>
+        <button id="confirm-yes" onclick="restartGame()">はい</button>
+        <button id="confirm-no" onclick="cancelRestart()">いいえ</button>
     </div>
 
     <script src="quiz.js"></script>
