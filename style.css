@@ -26,7 +26,6 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px 0; /* ボタンの間にスペースを作る */
 }
 
 button:hover {
@@ -36,7 +35,7 @@ button:hover {
 #choices {
     display: flex;
     flex-direction: column; /* 縦に並べる */
-    align-items: center; /* ボタンを中央に配置 */
+    align-items: center;
     gap: 10px; /* ボタン同士の間隔 */
 }
 
@@ -44,4 +43,25 @@ button:hover {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
+}
+
+#end-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#confirm-dialog {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
