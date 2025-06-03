@@ -113,7 +113,7 @@ function restartGame() {
     // ゲームをリセットして再スタート
     score = 0;
     currentQuestionIndex = 0;
-    timeLeft = 300; // タイマーをリセット
+    timeLeft = 180; // タイマーをリセット
     document.getElementById('time-left').textContent = timeLeft;
 
     // クイズ部分を再表示
