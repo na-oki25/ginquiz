@@ -24,6 +24,11 @@ const quizData = [
         choices: ["女王の結婚式", "ウィリアムス3世の即位", "東インド会社の設立", "フランス革命"],
         correct: "ウィリアムス3世の即位"
     },
+    {
+        question: "1回目のGin Act(ジン取締法)を公布したのは何年？",
+        choices: ["1727年", "1729年", "1733年", "1736年"],
+        correct: "1729年"
+    },
 ];
 
 let currentQuestionIndex = 0;
