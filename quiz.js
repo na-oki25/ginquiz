@@ -18,7 +18,7 @@ const quizData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
-let timeLeft = 300; // 5分（300秒）
+let timeLeft = 180; // 3分（18秒）
 let timerInterval;
 let timerStarted = false; // タイマーが始まっているかのフラグ
 
