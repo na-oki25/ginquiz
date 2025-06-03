@@ -1,7 +1,7 @@
 const quizData = [
     {
-        question: "クラフトジンの主成分は何ですか？",
-        choices: ["ジュニパーベリー", "リンゴ", "オレンジ", "レモン"],
+        question: "ジンに必ず使われる原料はどれ？",
+        choices: ["ジュニパーベリー", "リンゴ", "シナモン", "ミント"],
         correct: "ジュニパーベリー"
     },
     {
@@ -10,15 +10,25 @@ const quizData = [
         correct: "蒸留"
     },
     {
-        question: "最初にクラフトジンが登場した国はどこですか？",
-        choices: ["イギリス", "アメリカ", "オランダ", "日本"],
-        correct: "イギリス"
-    }
+        question: "ジンの名前の由来とされる言語は？",
+        choices: ["フランス語", "ラテン語", "オランダ語", "英語"],
+        correct: "オランダ語(jenever)"
+    },
+    {
+        question: "1720年ごろからイギリスでジンが大流行した時代をなんと呼ぶ？",
+        choices: ["ジン・ブーム", "スピリッツ革命", "Gin Craze/狂気のジン時代", "ジン・ウェーブ"],
+        correct: "Gin Craze/狂気のジン時代"
+    },
+    {
+        question: "ジンがイギリスで広まるきっかけになった出来事は？",
+        choices: ["女王の結婚式", "ウィリアムス3世の即位", "東インド会社の設立", "フランス革命"],
+        correct: "ウィリアムス3世の即位"
+    },
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
-let timeLeft = 180; // 3分（18秒）
+let timeLeft = 180; // 3分（180秒）
 let timerInterval;
 let timerStarted = false; // タイマーが始まっているかのフラグ
 
