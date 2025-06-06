@@ -29,12 +29,7 @@ const quizData = [
         choices: ["1727年", "1729年", "1733年", "1736年"],
         correct: "1729年"
     },
-     {
-        question: "1回目のGin Act(ジン取締法)を公布したのは何年？",
-        choices: ["1727年", "1729年", "1733年", "1736年"],
-        correct: "1729年"
-    },
-     {
+    {
         question: "次のうちジンの香づけに最も一般的に使われるジュニパー属の種は？",
         choices: ["Juniperus Chinensis", "Juniperus virginiana", "Juniperus communis", "Juniperus phoenicea"],
         correct: "Juniperus communis"
