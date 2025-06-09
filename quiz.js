@@ -68,7 +68,6 @@ function displayQuestion() {
     const questionElement = document.getElementById('question');
     const choicesElement = document.getElementById('choices');
     const questionNumberElement = document.getElementById('question-number'); // 問題番号を表示する要素
-    const feedbackElement = document.getElementById('feedback'); // 正解/不正解を表示するための要素
     
     // 問題番号を更新（Q1, Q2, ...）
     questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`;
@@ -85,9 +84,6 @@ function displayQuestion() {
 
     // 「次の問題」ボタンは非表示にしておく
     document.getElementById('next-button').style.display = "none";
-
-    // 正解/不正解の表示用要素を非表示にしておく
-    feedbackElement.style.display = "none";
 }
 
 // タイマーの開始（最初の問題に答えたらスタート）
