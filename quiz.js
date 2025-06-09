@@ -70,7 +70,7 @@ function displayQuestion() {
     const questionNumberElement = document.getElementById('question-number'); // 問題番号を表示する要素
     
     // 問題番号を更新（Q1, Q2, ...）
-    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`;
+    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`; // ここで表示される問題番号を更新
 
     questionElement.textContent = currentQuestion.question;
 
@@ -166,3 +166,4 @@ function cancelRestart() {
 
 // 最初の質問を表示
 displayQuestion();
+
