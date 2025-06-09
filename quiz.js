@@ -68,9 +68,10 @@ function displayQuestion() {
     const questionElement = document.getElementById('question');
     const choicesElement = document.getElementById('choices');
     const questionNumberElement = document.getElementById('question-number'); // 問題番号を表示する要素
+    const feedbackElement = document.getElementById('feedback'); // 正解/不正解を表示するための要素
     
     // 問題番号を更新（Q1, Q2, ...）
-    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`; // ここで表示される問題番号を更新
+    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`;
 
     questionElement.textContent = currentQuestion.question;
 
@@ -84,6 +85,9 @@ function displayQuestion() {
 
     // 「次の問題」ボタンは非表示にしておく
     document.getElementById('next-button').style.display = "none";
+
+    // 正解/不正解の表示用要素を非表示にしておく
+    feedbackElement.style.display = "none";
 }
 
 // タイマーの開始（最初の問題に答えたらスタート）
@@ -105,18 +109,21 @@ function startTimer() {
 
 function checkAnswer(selectedChoice) {
     const currentQuestion = quizData[currentQuestionIndex];
+    const feedbackElement = document.getElementById('feedback'); // 正解/不正解を表示するための要素
     
+    // 正解を表示
     if (selectedChoice === currentQuestion.correct) {
         score++;  // 正解の場合スコアを加算
+        feedbackElement.textContent = `正解！答えは「${currentQuestion.correct}」でした。`;
+    } else {
+        feedbackElement.textContent = `不正解。正解は「${currentQuestion.correct}」でした。`;
     }
+    
+    // 正解/不正解を表示
+    feedbackElement.style.display = "block";
 
-    // 最初の問題を答えたらタイマーをスタート
-    if (!timerStarted) {
-        startTimer(); // タイマーを開始
-    }
-
-    // 次の問題に進む
-    nextQuestion();
+    // 次の問題に進む前に少し待つ
+    setTimeout(nextQuestion, 2000); // 2秒後に次の問題に進む
 }
 
 function nextQuestion() {
@@ -166,4 +173,3 @@ function cancelRestart() {
 
 // 最初の質問を表示
 displayQuestion();
-
