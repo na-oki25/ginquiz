@@ -122,7 +122,7 @@ function checkAnswer(selectedChoice) {
     // 正解/不正解を表示
     feedbackElement.style.display = "block";
 
-    // 次の問題に進む前に少し待つ
+    // 2秒後に次の問題に進む
     setTimeout(nextQuestion, 2000); // 2秒後に次の問題に進む
 }
 
