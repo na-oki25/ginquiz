@@ -70,7 +70,7 @@ function displayQuestion() {
     const questionNumberElement = document.getElementById('question-number'); // 問題番号を表示する要素
     
     // 問題番号を更新（Q1, Q2, ...）
-    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`;
+    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`; // ここで表示される問題番号を更新
 
     questionElement.textContent = currentQuestion.question;
 
@@ -105,21 +105,18 @@ function startTimer() {
 
 function checkAnswer(selectedChoice) {
     const currentQuestion = quizData[currentQuestionIndex];
-    const feedbackElement = document.getElementById('feedback'); // 正解/不正解を表示するための要素
     
-    // 正解を表示
     if (selectedChoice === currentQuestion.correct) {
         score++;  // 正解の場合スコアを加算
-        feedbackElement.textContent = `正解！答えは「${currentQuestion.correct}」でした。`;
-    } else {
-        feedbackElement.textContent = `不正解。正解は「${currentQuestion.correct}」でした。`;
     }
-    
-    // 正解/不正解を表示
-    feedbackElement.style.display = "block";
 
-    // 2秒後に次の問題に進む
-    setTimeout(nextQuestion, 2000); // 2秒後に次の問題に進む
+    // 最初の問題を答えたらタイマーをスタート
+    if (!timerStarted) {
+        startTimer(); // タイマーを開始
+    }
+
+    // 次の問題に進む
+    nextQuestion();
 }
 
 function nextQuestion() {
