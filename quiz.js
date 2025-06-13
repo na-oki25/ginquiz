@@ -53,79 +53,8 @@ const quizData = [
         question: "次のうちジンの香づけに最も一般的に使われるジュニパー属の種は？",
         choices: ["Juniperus Chinensis", "Juniperus virginiana", "Juniperus communis", "Juniperus phoenicea"],
         correct: "Juniperus communis"
-    },
-    {
-        question: "大和蒸溜所の英語表記が正しいのはどれ？",
-        choices: ["YAMOTO DISTILLERY", "YAMATO DISTILLERY", "TOMATO DISTILLERY", "YAMATO DISTILERY"],
-        correct: "YAMATO DISTILLERY"
-    },
-    {
-        question: "「やまとじょうりゅうじょ」の漢字表記が正しいのどれ？",
-        choices: ["倭蒸留所", "大和蒸留所", "大和蒸溜所", "大和蒸溜場"],
-        correct: "大和蒸溜所"
-    },
-    {
-        question: "大和蒸溜所の設立はいつ？",
-        choices: ["2016", "2017", "2018", "2019"],
-        correct: "2018"
-    },
-    {
-        question: "「きっかじん」の正しい表記はどれ？",
-        choices: ["橘花KIKKA ジン", "橘花ジン", "橘花　KIKKAGIN", "橘花KIKKA GIN"],
-        correct: "橘花KIKKA GIN"
-    },
-    {
-        question: "橘花KIKKA GINのアルコール度数は？",
-        choices: ["47%", "51%", "59%", "61%"],
-        correct: "59%"
-    },
-    {
-        question: "不老不死の薬を探してこいと命じたの何代天皇？",
-        choices: ["11代", "12代", "13代", "14代"],
-        correct: "11代"
-    },
-    {
-        question: "田道間守は何の神様と言われている？",
-        choices: ["薬", "お菓子", "短歌", "冒険"],
-        correct: "お菓子"
-    },
-    {
-        question: "橘花KIKKA GIN朱華のアルコール度数は？",
-        choices: ["37%", "41%", "43%", "44%"],
-        correct: "43%"
-    },
-    {
-        question: "橘花KIKKA GIN朱華に使っている苺の品種は？",
-        choices: ["古都華", "あすかルビー", "飛鳥ルビー", "アスカルビー"],
-        correct: "あすかルビー"
-    },
-    {
-        question: "橘花KIKKA GINの３つ目の定番品として昨年リリースされたのは？",
-        choices: ["流川", "流転", "逆転", "輪廻"],
-        correct: "流転"
-    },
-    {
-        question: "橘花KIKKA GIN流転のアルコール度数は？",
-        choices: ["45%", "47%", "49%", "50%"],
-        correct: "47%"
-    },
-    {
-        question: "橘花KIKKA GIN流転に使われている木の種類は杉と何？",
-        choices: ["檜", "櫟", "欅", "楡"],
-        correct: "檜"
-    },
-    {
-        question: "今までリリースしていないのは？",
-        choices: ["橘花KIKKA GIN夢現", "橘花KIKKA GIN彼誰時", "橘花KIKKA GIN澪標", "橘花KIKKA GIN無為"],
-        correct: "橘花KIKKA GIN無為"
-    },
-    {
-        question: "シニアアンバサダーの「わたなべたくみ」の「わたなべ」の字はどれでしょう？",
-        choices: ["渡邉", "渡辺", "渡邊", "渡部"],
-        correct: "渡邉"
-    },
+    }
 ];
-
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -141,7 +70,7 @@ function displayQuestion() {
     const questionNumberElement = document.getElementById('question-number'); // 問題番号を表示する要素
     
     // 問題番号を更新（Q1, Q2, ...）
-    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`; // ここで表示される問題番号を更新
+    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`;
 
     questionElement.textContent = currentQuestion.question;
 
@@ -149,7 +78,8 @@ function displayQuestion() {
     currentQuestion.choices.forEach(choice => {
         const button = document.createElement("button");
         button.textContent = choice;
-        button.onclick = function() { checkAnswer(choice); };
+        button.classList.add("choice-button"); // ボタンにクラスを追加
+        button.onclick = function() { checkAnswer(choice, button); };
         choicesElement.appendChild(button);
     });
 
@@ -174,20 +104,37 @@ function startTimer() {
     }
 }
 
-function checkAnswer(selectedChoice) {
+function checkAnswer(selectedChoice, selectedButton) {
     const currentQuestion = quizData[currentQuestionIndex];
+    const feedbackElement = document.getElementById('feedback'); // 正解/不正解を表示するための要素
     
+    // 正解を表示
     if (selectedChoice === currentQuestion.correct) {
         score++;  // 正解の場合スコアを加算
+        feedbackElement.textContent = `正解！答えは「${currentQuestion.correct}」でした。`;
+
+        // 正解の選択肢を緑色に変更
+        selectedButton.style.backgroundColor = 'green'; // 正解の選択肢を緑色に変更
+    } else {
+        feedbackElement.textContent = `不正解。正解は「${currentQuestion.correct}」でした。`;
+
+        // 不正解の選択肢を赤色に変更
+        selectedButton.style.backgroundColor = 'red'; // 不正解の選択肢を赤色に変更
+
+        // 正解の選択肢も緑色に変更
+        const buttons = document.getElementById('choices').getElementsByTagName('button');
+        for (let btn of buttons) {
+            if (btn.textContent === currentQuestion.correct) {
+                btn.style.backgroundColor = 'green';
+            }
+        }
     }
 
-    // 最初の問題を答えたらタイマーをスタート
-    if (!timerStarted) {
-        startTimer(); // タイマーを開始
-    }
+    // 正解/不正解を表示
+    feedbackElement.style.display = "block";
 
-    // 次の問題に進む
-    nextQuestion();
+    // 2秒後に次の問題に進む
+    setTimeout(nextQuestion, 2000); // 2秒後に次の問題に進む
 }
 
 function nextQuestion() {
