@@ -125,6 +125,7 @@ const quizData = [
         correct: "渡邉"
     },
 ];
+
 let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 180; // 3分（180秒）
@@ -150,7 +151,6 @@ function displayQuestion() {
         button.classList.add("choice-button"); // ボタンにクラスを追加
         button.onclick = function() { checkAnswer(choice, button); };
         choicesElement.appendChild(button);
-    });
 }
 
 // タイマーの開始（最初の問題に答えたらスタート）
@@ -198,6 +198,11 @@ function checkAnswer(selectedChoice, selectedButton) {
 
     // 正解/不正解を表示
     feedbackElement.style.display = "block";
+
+    // 最初の問題の答えを選んだタイミングでタイマーがスタート
+    if (!timerStarted) {
+        startTimer(); // タイマーをスタート
+    }
 
     // 1秒後に次の問題に進む
     setTimeout(nextQuestion, 1000); // 1秒後に次の問題に進む
@@ -250,4 +255,3 @@ function cancelRestart() {
 
 // 最初の質問を表示
 displayQuestion();
-
