@@ -18,7 +18,112 @@ const quizData = [
         question: "1720年ごろからイギリスでジンが大流行した時代をなんと呼ぶ？",
         choices: ["ジン・ブーム", "スピリッツ革命", "Gin Craze/狂気のジン時代", "ジン・ウェーブ"],
         correct: "Gin Craze/狂気のジン時代"
-    }
+    },
+    {
+        question: "ジンがイギリスで広まるきっかけになった出来事は？",
+        choices: ["女王の結婚式", "ウィリアムス3世の即位", "東インド会社の設立", "フランス革命"],
+        correct: "ウィリアムス3世の即位"
+    },
+    {
+        question: "1回目のGin Act(ジン取締法)を公布したのは何年？",
+        choices: ["1727年", "1729年", "1733年", "1736年"],
+        correct: "1729年"
+    },
+    {
+        question: "6月の第2土曜日は世界中でジンを楽しむ「ジンの日」ですが、「ジントニックの日」はいつでしょう？",
+        choices: ["7月14日", "9月4日", "10月19日", "12月25日"],
+        correct: "10月19日"
+    },
+    {
+        question: "ジントニックの「トニック」とはどんな飲み物？",
+        choices: ["苦味のある薬草炭酸飲料", "甘いレモネード", "白ワインを炭酸で割ったもの", "炭酸水に砂糖を加えたもの"],
+        correct: "苦味のある薬草炭酸飲料"
+    },
+    {
+        question: "トニックウォーターの苦味のもとである「キニーネ」は、どんな植物から採れる？",
+        choices: ["セイロンシナモン", "キナノキ", "ニガヨモギ", "カラミンサ"],
+        correct: "キナノキ"
+    },
+    {
+        question: "トニックウォーターに含まれている成分「キニーネ」の効果は？",
+        choices: ["苦味を加える", "アルコールを中和する", "炭酸を強くする", "マラリアの予防"],
+        correct: "マラリアの予防"
+    },
+    {
+        question: "次のうちジンの香づけに最も一般的に使われるジュニパー属の種は？",
+        choices: ["Juniperus Chinensis", "Juniperus virginiana", "Juniperus communis", "Juniperus phoenicea"],
+        correct: "Juniperus communis"
+    },
+    {
+        question: "大和蒸溜所の英語表記が正しいのはどれ？",
+        choices: ["YAMOTO DISTILLERY", "YAMATO DISTILLERY", "TOMATO DISTILLERY", "YAMATO DISTILERY"],
+        correct: "YAMATO DISTILLERY"
+    },
+    {
+        question: "「やまとじょうりゅうじょ」の漢字表記が正しいのどれ？",
+        choices: ["倭蒸留所", "大和蒸留所", "大和蒸溜所", "大和蒸溜場"],
+        correct: "大和蒸溜所"
+    },
+    {
+        question: "大和蒸溜所の設立はいつ？",
+        choices: ["2016", "2017", "2018", "2019"],
+        correct: "2018"
+    },
+    {
+        question: "「きっかじん」の正しい表記はどれ？",
+        choices: ["橘花KIKKA ジン", "橘花ジン", "橘花　KIKKAGIN", "橘花KIKKA GIN"],
+        correct: "橘花KIKKA GIN"
+    },
+    {
+        question: "橘花KIKKA GINのアルコール度数は？",
+        choices: ["47%", "51%", "59%", "61%"],
+        correct: "59%"
+    },
+    {
+        question: "不老不死の薬を探してこいと命じたの何代天皇？",
+        choices: ["11代", "12代", "13代", "14代"],
+        correct: "11代"
+    },
+    {
+        question: "田道間守は何の神様と言われている？",
+        choices: ["薬", "お菓子", "短歌", "冒険"],
+        correct: "お菓子"
+    },
+    {
+        question: "橘花KIKKA GIN朱華のアルコール度数は？",
+        choices: ["37%", "41%", "43%", "44%"],
+        correct: "43%"
+    },
+    {
+        question: "橘花KIKKA GIN朱華に使っている苺の品種は？",
+        choices: ["古都華", "あすかルビー", "飛鳥ルビー", "アスカルビー"],
+        correct: "あすかルビー"
+    },
+    {
+        question: "橘花KIKKA GINの３つ目の定番品として昨年リリースされたのは？",
+        choices: ["流川", "流転", "逆転", "輪廻"],
+        correct: "流転"
+    },
+    {
+        question: "橘花KIKKA GIN流転のアルコール度数は？",
+        choices: ["45%", "47%", "49%", "50%"],
+        correct: "47%"
+    },
+    {
+        question: "橘花KIKKA GIN流転に使われている木の種類は杉と何？",
+        choices: ["檜", "櫟", "欅", "楡"],
+        correct: "檜"
+    },
+    {
+        question: "今までリリースしていないのは？",
+        choices: ["橘花KIKKA GIN夢現", "橘花KIKKA GIN彼誰時", "橘花KIKKA GIN澪標", "橘花KIKKA GIN無為"],
+        correct: "橘花KIKKA GIN無為"
+    },
+    {
+        question: "シニアアンバサダーの「わたなべたくみ」の「わたなべ」の字はどれでしょう？",
+        choices: ["渡邉", "渡辺", "渡邊", "渡部"],
+        correct: "渡邉"
+    },
 ];
 
 let currentQuestionIndex = 0;
