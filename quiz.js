@@ -126,29 +126,6 @@ const quizData = [
     },
 ];
 
-const quizData = [
-    {
-        question: "ジンに必ず使われる原料はどれ？",
-        choices: ["ジュニパーベリー", "リンゴ", "シナモン", "ミント"],
-        correct: "ジュニパーベリー"
-    },
-    {
-        question: "ジンの製造で最も重要な工程は何ですか？",
-        choices: ["蒸留", "発酵", "熟成", "冷却"],
-        correct: "蒸留"
-    },
-    {
-        question: "ジンの名前の由来とされる言語は？",
-        choices: ["フランス語", "ラテン語", "オランダ語", "英語"],
-        correct: "オランダ語(jenever)"
-    },
-    {
-        question: "1720年ごろからイギリスでジンが大流行した時代をなんと呼ぶ？",
-        choices: ["ジン・ブーム", "スピリッツ革命", "Gin Craze/狂気のジン時代", "ジン・ウェーブ"],
-        correct: "Gin Craze/狂気のジン時代"
-    }
-];
-
 let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 180; // 3分（180秒）
