@@ -151,6 +151,10 @@ function displayQuestion() {
         button.classList.add("choice-button"); // ボタンにクラスを追加
         button.onclick = function() { checkAnswer(choice, button); };
         choicesElement.appendChild(button);
+    });
+
+    // タイマーが最初の問題解答後にスタートする
+    // タイマーは最初の問題の答えを選んだ時にスタート
 }
 
 // タイマーの開始（最初の問題に答えたらスタート）
@@ -198,11 +202,6 @@ function checkAnswer(selectedChoice, selectedButton) {
 
     // 正解/不正解を表示
     feedbackElement.style.display = "block";
-
-    // 最初の問題の答えを選んだタイミングでタイマーがスタート
-    if (!timerStarted) {
-        startTimer(); // タイマーをスタート
-    }
 
     // 1秒後に次の問題に進む
     setTimeout(nextQuestion, 1000); // 1秒後に次の問題に進む
@@ -254,6 +253,4 @@ function cancelRestart() {
 }
 
 // 最初の質問を表示
-window.onload = function() {
-    displayQuestion();  // ページが読み込まれた時に最初の問題を表示
-};
+displayQuestion();
