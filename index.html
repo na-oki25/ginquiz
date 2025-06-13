@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +8,26 @@
 </head>
 <body>
     <div id="quiz-container">
-        <h2>クラフトジンクイズ</h2>
-        
-        <!-- ここに問題番号（Q1, Q2, Q3）を表示 -->
-        <p id="question-number">問題: Q1</p>
-
-        <p id="question">問題がここに表示されます</p>
+        <h2 id="question-number"></h2>
+        <p id="question"></p>
         <div id="choices">
-            <!-- 選択肢がここに表示される -->
+            <!-- 選択肢ボタンがここに表示される -->
         </div>
-        <button id="next-button" onclick="nextQuestion()">次の問題</button>
-        <div id="timer">
-            残り時間: <span id="time-left">180</span>秒
-        </div>
+        <p id="feedback" style="display:none;"></p>
+        <p>残り時間: <span id="time-left">180</span>秒</p>
+        <div id="next-button" style="display:none;"></div>
     </div>
 
     <div id="end-container" style="display:none;">
-        <h2>ゲーム終了！</h2>
-        <p id="score-display">あなたのスコアは 0 点です。</p>
-        <button id="restart-button" onclick="confirmRestart()">最初から</button>
+        <h2>ゲーム終了</h2>
+        <p id="score-display"></p>
+        <button onclick="confirmRestart()">最初から</button>
     </div>
 
-    <!-- 確認ダイアログ -->
     <div id="confirm-dialog" style="display:none;">
         <p>本当に最初からやり直しますか？</p>
-        <button id="confirm-yes" onclick="restartGame()">はい</button>
-        <button id="confirm-no" onclick="cancelRestart()">いいえ</button>
+        <button onclick="restartGame()">はい</button>
+        <button onclick="cancelRestart()">いいえ</button>
     </div>
 
     <script src="quiz.js"></script>
