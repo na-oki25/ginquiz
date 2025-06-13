@@ -254,4 +254,6 @@ function cancelRestart() {
 }
 
 // 最初の質問を表示
-displayQuestion();
+window.onload = function() {
+    displayQuestion();  // ページが読み込まれた時に最初の問題を表示
+};
