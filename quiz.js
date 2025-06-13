@@ -18,41 +18,6 @@ const quizData = [
         question: "1720年ごろからイギリスでジンが大流行した時代をなんと呼ぶ？",
         choices: ["ジン・ブーム", "スピリッツ革命", "Gin Craze/狂気のジン時代", "ジン・ウェーブ"],
         correct: "Gin Craze/狂気のジン時代"
-    },
-    {
-        question: "ジンがイギリスで広まるきっかけになった出来事は？",
-        choices: ["女王の結婚式", "ウィリアムス3世の即位", "東インド会社の設立", "フランス革命"],
-        correct: "ウィリアムス3世の即位"
-    },
-    {
-        question: "1回目のGin Act(ジン取締法)を公布したのは何年？",
-        choices: ["1727年", "1729年", "1733年", "1736年"],
-        correct: "1729年"
-    },
-    {
-        question: "6月の第2土曜日は世界中でジンを楽しむ「ジンの日」ですが、「ジントニックの日」はいつでしょう？",
-        choices: ["7月14日", "9月4日", "10月19日", "12月25日"],
-        correct: "10月19日"
-    },
-    {
-        question: "ジントニックの「トニック」とはどんな飲み物？",
-        choices: ["苦味のある薬草炭酸飲料", "甘いレモネード", "白ワインを炭酸で割ったもの", "炭酸水に砂糖を加えたもの"],
-        correct: "苦味のある薬草炭酸飲料"
-    },
-    {
-        question: "トニックウォーターの苦味のもとである「キニーネ」は、どんな植物から採れる？",
-        choices: ["セイロンシナモン", "キナノキ", "ニガヨモギ", "カラミンサ"],
-        correct: "キナノキ"
-    },
-    {
-        question: "トニックウォーターに含まれている成分「キニーネ」の効果は？",
-        choices: ["苦味を加える", "アルコールを中和する", "炭酸を強くする", "マラリアの予防"],
-        correct: "マラリアの予防"
-    },
-    {
-        question: "次のうちジンの香づけに最も一般的に使われるジュニパー属の種は？",
-        choices: ["Juniperus Chinensis", "Juniperus virginiana", "Juniperus communis", "Juniperus phoenicea"],
-        correct: "Juniperus communis"
     }
 ];
 
@@ -83,8 +48,10 @@ function displayQuestion() {
         choicesElement.appendChild(button);
     });
 
-    // 「次の問題」ボタンは非表示にしておく
-    document.getElementById('next-button').style.display = "none";
+    // 最初の問題を解いた時にタイマーを開始
+    if (!timerStarted) {
+        startTimer(); // タイマーの開始
+    }
 }
 
 // タイマーの開始（最初の問題に答えたらスタート）
