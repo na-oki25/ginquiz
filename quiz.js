@@ -124,6 +124,16 @@ const quizData = [
         choices: ["渡邉", "渡辺", "渡邊", "渡部"],
         correct: "渡邉"
     },
+    {
+        question: "橘花KIKKA GINのベーススピリッツは何でしょう？",
+        choices: ["米焼酎", "ライススピリッツ", "モラセス", "ウィートスピリッツ"],
+        correct: "ライススピリッツ"
+    },
+    {
+        question: "大和蒸溜所は今ままで何種類のジンを造ったでしょう？",
+        choices: ["10", "15", "20", "25"],
+        correct: "25"
+    },
 ];
 
 let currentQuestionIndex = 0;
