@@ -182,7 +182,7 @@ function checkAnswer(selectedChoice, selectedButton) {
         score++;  // 正解の場合スコアを加算
         feedbackElement.textContent = `正解！答えは「${currentQuestion.correct}」でした。`;
 
-        // 正解の選択肢を赤色に変更
+        // 正解の選択肢を緑色に変更
         selectedButton.style.backgroundColor = 'green'; // 正解の選択肢を緑色に変更
     } else {
         feedbackElement.textContent = `不正解。正解は「${currentQuestion.correct}」でした。`;
