@@ -199,6 +199,10 @@ function checkAnswer(selectedChoice, selectedButton) {
             }
         }
     }
+        // 最初の問題を答えたらタイマーをスタート
+    if (!timerStarted) {
+        startTimer(); // タイマーを開始
+    }
 
     // 正解/不正解を表示
     feedbackElement.style.display = "block";
