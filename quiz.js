@@ -48,10 +48,8 @@ function displayQuestion() {
         choicesElement.appendChild(button);
     });
 
-    // 最初の問題を解いた時にタイマーを開始
-    if (!timerStarted) {
-        startTimer(); // タイマーの開始
-    }
+    // タイマーが最初の問題解答後にスタートする
+    // タイマーは最初の問題の答えを選んだ時にスタート
 }
 
 // タイマーの開始（最初の問題に答えたらスタート）
@@ -100,8 +98,8 @@ function checkAnswer(selectedChoice, selectedButton) {
     // 正解/不正解を表示
     feedbackElement.style.display = "block";
 
-  // すぐに次の問題に進む
-    nextQuestion(); // 2秒待たずに次の問題へ進む
+    // 1秒後に次の問題に進む
+    setTimeout(nextQuestion, 1000); // 1秒後に次の問題に進む
 }
 
 function nextQuestion() {
