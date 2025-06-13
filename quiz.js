@@ -125,7 +125,6 @@ const quizData = [
         correct: "渡邉"
     },
 ];
-
 let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 180; // 3分（180秒）
@@ -152,9 +151,6 @@ function displayQuestion() {
         button.onclick = function() { checkAnswer(choice, button); };
         choicesElement.appendChild(button);
     });
-
-    // タイマーが最初の問題解答後にスタートする
-    // タイマーは最初の問題の答えを選んだ時にスタート
 }
 
 // タイマーの開始（最初の問題に答えたらスタート）
@@ -254,3 +250,4 @@ function cancelRestart() {
 
 // 最初の質問を表示
 displayQuestion();
+
