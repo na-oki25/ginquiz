@@ -100,8 +100,8 @@ function checkAnswer(selectedChoice, selectedButton) {
     // 正解/不正解を表示
     feedbackElement.style.display = "block";
 
-    // 2秒後に次の問題に進む
-    setTimeout(nextQuestion, 2000); // 2秒後に次の問題に進む
+  // すぐに次の問題に進む
+    nextQuestion(); // 2秒待たずに次の問題へ進む
 }
 
 function nextQuestion() {
