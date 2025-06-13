@@ -1,67 +1,48 @@
 body {
     font-family: Arial, sans-serif;
+    text-align: center;
     background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
 }
 
 #quiz-container {
-    background-color: white;
+    margin: 20px;
     padding: 20px;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
+    display: inline-block;
 }
 
 button {
     padding: 10px 20px;
+    margin: 5px;
     font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #f0f0f0;
 }
 
-#choices {
-    display: flex;
-    flex-direction: column; /* 縦に並べる */
-    align-items: center;
-    gap: 10px; /* ボタン同士の間隔 */
+button.choice-button {
+    width: 200px;
+    margin: 10px 0;
 }
 
-#timer {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
+button.correct {
+    background-color: green;
+}
+
+button.incorrect {
+    background-color: red;
 }
 
 #end-container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#confirm-dialog {
-    text-align: center;
-    background-color: white;
     padding: 20px;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
 }
