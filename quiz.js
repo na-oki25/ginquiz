@@ -140,7 +140,7 @@ function displayQuestion() {
     const questionNumberElement = document.getElementById('question-number'); // 問題番号を表示する要素
     
     // 問題番号を更新（Q1, Q2, ...）
-    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`;
+    questionNumberElement.textContent = `問題: Q${currentQuestionIndex + 1}`; // ここで表示される問題番号を更新
 
     questionElement.textContent = currentQuestion.question;
 
@@ -148,8 +148,7 @@ function displayQuestion() {
     currentQuestion.choices.forEach(choice => {
         const button = document.createElement("button");
         button.textContent = choice;
-        button.classList.add("choice-button"); // ボタンにクラスを追加
-        button.onclick = function() { checkAnswer(choice, button); };
+        button.onclick = function() { checkAnswer(choice); };
         choicesElement.appendChild(button);
     });
 
@@ -174,37 +173,20 @@ function startTimer() {
     }
 }
 
-function checkAnswer(selectedChoice, selectedButton) {
+function checkAnswer(selectedChoice) {
     const currentQuestion = quizData[currentQuestionIndex];
-    const feedbackElement = document.getElementById('feedback'); // 正解/不正解を表示するための要素
     
-    // 正解を表示
     if (selectedChoice === currentQuestion.correct) {
         score++;  // 正解の場合スコアを加算
-        feedbackElement.textContent = `正解！答えは「${currentQuestion.correct}」でした。`;
-
-        // 正解の選択肢を緑色に変更
-        selectedButton.style.backgroundColor = 'green'; // 正解の選択肢を緑色に変更
-    } else {
-        feedbackElement.textContent = `不正解。正解は「${currentQuestion.correct}」でした。`;
-
-        // 不正解の選択肢を赤色に変更
-        selectedButton.style.backgroundColor = 'red'; // 不正解の選択肢を赤色に変更
-
-        // 正解の選択肢も緑色に変更
-        const buttons = document.getElementById('choices').getElementsByTagName('button');
-        for (let btn of buttons) {
-            if (btn.textContent === currentQuestion.correct) {
-                btn.style.backgroundColor = 'green';
-            }
-        }
     }
 
-    // 正解/不正解を表示
-    feedbackElement.style.display = "block";
+    // 最初の問題を答えたらタイマーをスタート
+    if (!timerStarted) {
+        startTimer(); // タイマーを開始
+    }
 
-    // 2秒後に次の問題に進む
-    setTimeout(nextQuestion, 2000); // 2秒後に次の問題に進む
+    // 次の問題に進む
+    nextQuestion();
 }
 
 function nextQuestion() {
