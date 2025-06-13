@@ -138,10 +138,10 @@ function checkAnswer(selectedChoice, selectedButton) {
 }
 
 function nextQuestion() {
-    currentQuestionIndex++;
+    currentQuestionIndex++; // 次の問題に進むためにインデックスをインクリメント
 
     if (currentQuestionIndex < quizData.length) {
-        displayQuestion();
+        displayQuestion(); // 次の問題を表示
     } else {
         endGame();  // ゲーム終了
     }
@@ -164,7 +164,7 @@ function confirmRestart() {
 function restartGame() {
     // ゲームをリセットして再スタート
     score = 0;
-    currentQuestionIndex = 0;
+    currentQuestionIndex = 0; // 最初の問題に戻す
     timeLeft = 180; // タイマーをリセット
     document.getElementById('time-left').textContent = timeLeft;
 
