@@ -148,6 +148,7 @@ function displayQuestion() {
     currentQuestion.choices.forEach(choice => {
         const button = document.createElement("button");
         button.textContent = choice;
+        button.classList.add("choice-button"); // ボタンにクラスを追加
         button.onclick = function() { checkAnswer(choice, button); };
         choicesElement.appendChild(button);
     });
