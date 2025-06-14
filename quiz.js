@@ -12,7 +12,7 @@ const quizData = [
     {
         question: "ジンの名前の由来とされる言語は？",
         choices: ["フランス語", "ラテン語", "オランダ語", "英語"],
-        correct: "オランダ語(jenever)"
+        correct: "オランダ語"
     },
     {
         question: "1720年ごろからイギリスでジンが大流行した時代をなんと呼ぶ？",
